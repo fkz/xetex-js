@@ -1,4 +1,4 @@
-{ buildEmscriptenPackage pkg-config autoconf automake libtool gnumake libxml2 nodejs openjdk json_c fetchurl }:
+{ buildEmscriptenPackage, pkg-config, autoconf, automake, libtool, gnumake, libxml2, nodejs, openjdk, json_c, fetchurl }:
 
 buildEmscriptenPackage rec {
   name = "xetex";
