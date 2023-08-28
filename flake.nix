@@ -30,7 +30,7 @@
           services.openssh.enable = true;
 
           environment.systemPackages = [
-            (import ./xetex.nix nixpkgs)
+            (import ./xetex.nix { inherit nixpkgs; })
           ];
 
           environment.shellAliases = {
