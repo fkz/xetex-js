@@ -1,7 +1,9 @@
 {
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
 
-  outputs = {self, nixpkgs }: {
+  outputs = {self, nixpkgs }: 
+  let xetex = import ./xetex.nix nixpkgs.legacyPackages.x86_64-linux in {
+    packages.x86_64-linux.xetex = xetex;
     nixosConfigurations.xetex-server = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 
@@ -29,9 +31,7 @@
           
           services.openssh.enable = true;
 
-          environment.systemPackages = [
-            (import ./xetex.nix nixpkgs.legacyPackages.x86_64-linux )
-          ];
+          environment.systemPackages = [ xetex ];
 
           environment.shellAliases = {
             rebuild = "nixos-rebuild switch";
