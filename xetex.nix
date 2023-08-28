@@ -3,8 +3,6 @@
 buildEmscriptenPackage {
   name = "xetex-0.0.1";
 
-  buildInputs = [ curl ];
-
   configurePhase = ''
     mkdir -p .emscriptencache
     export EM_CACHE=$(pwd)/.emscriptencache
