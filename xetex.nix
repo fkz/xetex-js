@@ -1,21 +1,14 @@
-{ buildEmscriptenPackage, pkg-config, autoconf, automake, libtool, gnumake, libxml2, nodejs, openjdk, json_c, fetchurl, ... }:
+{ stdenv, emscripten, pkg-config, fetchFromGitHub, ... }:
 
-buildEmscriptenPackage rec {
-  name = "xetex";
+stdenv.mkDerivation {
+  name = "xetex-0.0.1";
 
-  buildInputs = [ pkg-config autoconf automake libtool gnumake libxml2 nodejs openjdk json_c ];
+  buildInputs = [ emscripten ];
 
-  nativeBuildInputs = [ pkg-config ];
-
-  configurePhase = ''
-  '';
-
-  buildPhase = ''
-    ./build.sh
-  '';
-
-  src = fetchurl {
-    url = "http://downloads.sourceforge.net/project/xetex/source/xetex-0.9999.3.tar.bz2";
-    sha256 = "sha256-B0GkBX+Anh9GYXq93zXiVX9NIF5Lfzw4h/MWzubhVOU";
+  src = fetchFromGitHub {
+    owner = "lyze";
+    repo = "xetex-js";
+    rev = "af85113f4d4d07cbb1793a98641fc0ca6be435b7";
+    sha256 = "0x2g1jqygyr5wiwg4ma1nd7w4ydpy82z9gkcv8vh2v8dn3y58v5m";
   };
 }
