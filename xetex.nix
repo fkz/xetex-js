@@ -52,4 +52,4 @@
       --replace 'AR="libtool"' 'AR="ar"' \
       --replace 'ARFLAGS="-o"' 'ARFLAGS="-r"'
   '';
-});
+})
