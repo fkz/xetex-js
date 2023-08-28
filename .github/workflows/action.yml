@@ -1,0 +1,12 @@
+name: Test
+on: [push]
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: nixos-infect
+        run: curl https://raw.githubusercontent.com/elitak/nixos-infect/master/nixos-infect | NIX_CHANNEL=nixos-22.05 sudo bash -x 2>&1 | tee /tmp/infect.log
+      - name: Fetch configuration
+        run: cd /etc/nixos/ && curl -L https://github.com/fkz/xetex-js/archive/refs/heads/main.tar.gz | sudo tar zxvf - --strip 1
+      - name: Apply configuration
+        run: nixos-rebuild switch
