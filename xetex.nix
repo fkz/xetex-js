@@ -1,9 +1,9 @@
-{ stdenv, emscripten, pkg-config, fetchFromGitHub, curl, ... }:
+{ stdenv, buildEmscriptenPackage, pkg-config, fetchFromGitHub, curl, ... }:
 
-stdenv.mkDerivation {
+buildEmscriptenPackage {
   name = "xetex-0.0.1";
 
-  buildInputs = [ emscripten curl ];
+  buildInputs = [ curl ];
 
   src = fetchFromGitHub {
     owner = "lyze";
