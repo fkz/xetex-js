@@ -25,8 +25,13 @@
               ];
             };
           };
+
           
           services.openssh.enable = true;
+
+          environment.systemPackages = [
+            (./xetex.nix nixpkgs)
+          ]
 
           environment.shellAliases = {
             rebuild = "nixos-rebuild switch";
