@@ -35,7 +35,7 @@
 
           environment.shellAliases = {
             rebuild = "nixos-rebuild switch";
-            redownload = "cd /etc/nixos/ && curl https://github.com/fkz/xetex-js/archive/refs/heads/main.tar.gz | tar zxvf - --strip 1";
+            redownload = "cd /etc/nixos/ && curl -L https://github.com/fkz/xetex-js/archive/refs/heads/main.tar.gz | tar zxvf - --strip 1";
           };
         }
       ];
