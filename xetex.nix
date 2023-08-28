@@ -6,7 +6,7 @@ buildEmscriptenPackage {
   configurePhase = ''
     mkdir -p .emscriptencache
     export EM_CACHE=$(pwd)/.emscriptencache
-    emconfigure ./source/configure --without-x --disable-all-pkgs
+    emconfigure ./source/configure --without-x --disable-all-pkgs --enable-xetex --prefix $out
   '';
 
   makePhase = ''
