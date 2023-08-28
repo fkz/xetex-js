@@ -9,6 +9,6 @@ stdenv.mkDerivation {
     owner = "lyze";
     repo = "xetex-js";
     rev = "af85113f4d4d07cbb1793a98641fc0ca6be435b7";
-    sha256 = "sha256-tWxU/LANbQE32my+9AXyt3nCT7NBVfJ45CX757EMT3Q=";
+    sha256 = "sha256-MdpogzEzTJaY5G71wKSQ9c3Oi+ngM87tFHmIOqqMtwg=";
   };
 }
