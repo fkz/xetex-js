@@ -2,7 +2,7 @@
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
 
   outputs = {self, nixpkgs }: 
-  let xetex = import ./xetex.nix nixpkgs.legacyPackages.x86_64-linux in {
+  let xetex = import ./xetex.nix nixpkgs.legacyPackages.x86_64-linux; in {
     packages.x86_64-linux.xetex = xetex;
     nixosConfigurations.xetex-server = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
