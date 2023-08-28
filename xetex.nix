@@ -6,6 +6,12 @@ buildEmscriptenPackage {
   configurePhase = ''
     mkdir -p .emscriptencache
     export EM_CACHE=$(pwd)/.emscriptencache
+    emconfigure ./source/configure --without-x --disable-all-pkgs
+  '';
+
+  makePhase = ''
+    emmake make
+    # emcc [-Ox] project.o -o project.js
   '';
 
   src = fetchurl {
