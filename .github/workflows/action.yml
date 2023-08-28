@@ -9,8 +9,8 @@ jobs:
       - name: Install nix
         uses: cachix/install-nix-action@v20
       - name: Copy mocks
-        run: cp .github/workflows/mocks/*.nix .
-      - name: Show files
-        run: ls -l
+        run: |
+          cp .github/workflows/mocks/{networking,hardware-configuration}.nix .
+          git add networking.nix hardware-configuration.nix
       - name: Build
         run: nix build .#nixosConfigurations.xetex-server.config.system.build.toplevel
